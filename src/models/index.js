@@ -4,6 +4,7 @@ require('dotenv').config();
 const { Sequelize, DataTypes } = require('sequelize');
 const itemSchema = require('./item.schema');
 const downloadSchema = require('./download.schema');
+const ModelInterface = require('./modelInterface');
 
 
 // 'postgres://localhost:5432/sql-test'
@@ -29,6 +30,8 @@ module.exports = {
   sequelizeDb,
   ItemModel,
   DownloadModel,
-}
+  itemInterface: new ModelInterface(ItemModel),
+  downloadInterface: new ModelInterface(DownloadModel),
+};
 
 
